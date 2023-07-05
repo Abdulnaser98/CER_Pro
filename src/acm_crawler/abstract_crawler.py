@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import time
 
 # read csv file
-df = pd.read_csv("./src/data.csv")
+df = pd.read_csv("./data/acm_links.csv")
 
 # for each link in the dataframe, request the page and scrape the abstract
 abstracts = []
@@ -15,10 +15,10 @@ for link in df["link"]:
     soup = BeautifulSoup(page.content, "html.parser")
     abstract = soup.find(class_="abstractSection abstractInFull").get_text()
     abstracts.append(abstract)
-    time.sleep(12)
+    time.sleep(15)
 
 # add abstracts to dataframe
 df["abstract"] = abstracts
 
 # save dataframe to csv
-df.to_csv("data.csv", index=False)
+df.to_csv("acm_data_with_abstract.csv", index=False)

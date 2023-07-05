@@ -9,7 +9,7 @@ for i in range(0, 2):
     print(f"Page {i}")
 
     # URL
-    url = f"https://dl.acm.org/action/doSearch?fillQuickSearch=false&target=advanced&expand=dl&AfterYear=2004&BeforeYear=2022&AllField=Abstract%3A%28%28artificial+intelligence+OR+ai%29+AND+%28sustainable+energy+OR+sustainability%29%29&ConceptID=118230&startPage={i}&ContentItemType=research-article&pageSize=100"
+    url = f"https://dl.acm.org/action/doSearch?fillQuickSearch=false&target=advanced&ContentItemType=research-article&expand=all&AfterYear=2004&BeforeYear=2022&AllField=Abstract%3A%28%28artificial+intelligence+OR+%22ai%22%29+AND+%28sustainable+OR+sustainability%29+AND+energy%29+OR+Title%3A%28%28artificial+intelligence+OR+%22ai%22%29+AND+%28sustainable+OR+sustainability%29+AND+energy%29+OR+Keyword%3A%28%28artificial+intelligence+OR+%22ai%22%29+AND+%28sustainable+OR+sustainability%29+AND+energy%29&startPage={i}&pageSize=100"
     page = requests.get(url)
     soup = BeautifulSoup(page.content, "html.parser")
 
@@ -28,4 +28,4 @@ for i in range(0, 2):
 df = pd.DataFrame({"title": titles, "link": links})
 
 # Save dataframe to csv
-df.to_csv("data.csv", index=False)
+df.to_csv("acm_links.csv", index=False)
