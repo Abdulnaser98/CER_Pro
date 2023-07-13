@@ -45,7 +45,7 @@ def filter_dataframe(df, source):
 
 
 def main():
-    df = pd.read_csv("./data/raw_data/acm_data_with_abstract.csv")
+    df = pd.read_csv("./data/raw_data/acm_data_final.csv")
     filtered_df = filter_dataframe(df, "acm")
 
 
