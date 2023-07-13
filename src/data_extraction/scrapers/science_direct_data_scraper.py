@@ -19,7 +19,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 driver = webdriver.Chrome(service= Service(ChromeDriverManager().install()))
 
 # Path to the raw data folder
-path_to_raw_data_folder = "./code_base/data_extraction/raw_data/"
+path_to_raw_data_folder = "/Users/abdulnaser/Desktop/CER_Pro/code_base/data_extraction/raw_data/"
 
 # Path to the folder , where the links that were extracted from the website are saved
 path_to_article_links_folder = "./code_base/data_extraction/papers_links"
@@ -55,13 +55,13 @@ def extract_links():
 
 def extract_papers_data():
     print("Extracting the papers data:")
-    data = pd.read_csv("./raw_data/sciencedirect_papers_links.csv")
+    data = pd.read_csv("/Users/abdulnaser/Desktop/CER_Pro/code_base/data_extraction/raw_data/sciencedirect_papers_links.csv")
     dates = []
     abstracts = []
     titles = []
 
     # Use tqdm to track the progress of the loop
-    for link in tqdm(data['link'].tolist(), desc="Progress", unit="link", total=len(data['link'])):
+    for link in tqdm(data['link'].tolist()[200:250], desc="Progress", unit="link", total=len(data['link'].tolist()[200:300])):
         try:
             driver.get(link)
             time.sleep(3)
@@ -80,7 +80,7 @@ def extract_papers_data():
 
     data = {'date': dates, 'abstract': abstracts, 'title': titles}
     df = pd.DataFrame(data)
-    df.to_csv("./raw_data/sciencedirect_papers_data_uncleaned.csv", index=False)
+    df.to_csv("/Users/abdulnaser/Desktop/CER_Pro/code_base/data_extraction/raw_data/sciencedirect_papers_data_uncleaned_new_200_300.csv", index=False)
 
 
 
@@ -99,44 +99,9 @@ def extract_abstract():
 
 
 if __name__ == "__main__":
-    extract_links()
+    #extract_links()
     extract_papers_data()
 
-
-"""
-def merge_batched_csv_files():
-    # Path to the folder containing the files
-    folder_path = '/Users/abdulnaser/Desktop/CER_Proj/code_base/data_extraction/raw_data/'
-
-    # Path to the directory where to save the merged dataframe
-    output_folder_path = '/Users/abdulnaser/Desktop/CER_Proj/code_base/data_extraction/cleaned_data/'
-
-    # Get a list of all the csv files in the folder
-    csv_files = [ file for file in os.listdir(folder_path)]
-
-    # Initialize an empty dataframe to store the merged dataframe
-    merged_data = pd.DataFrame()
-
-    counter = 0
-    pdList = []  # List of your dataframes
-    # Loop through csv files and merge its data into the dataframe
-    for file in csv_files:
-        print(counter + 1)
-        file_path = os.path.join(folder_path, file)
-        df = pd.read_csv(file_path,sep=';',encoding='latin-1')
-        pdList.append(df)
-        counter += 1
-    merged_df = pd.concat(pdList)
-
-
-    # Save the dataframe to a CSV file in the output folder
-    output_file_path = os.path.join(output_folder_path, 'merged_data.csv')
-    merged_df.to_csv(output_file_path,index = False)
-
-    # Print confirmation message
-    print(f"Merged dataframe saved to: {output_file_path}")
-
-"""
 
 
 
