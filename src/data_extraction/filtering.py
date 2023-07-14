@@ -45,8 +45,8 @@ def filter_dataframe(df, source):
 
 
 def main():
-    df = pd.read_csv("./data/raw_data/acm_data_with_abstract.csv")
-    filtered_df = filter_dataframe(df, "acm")
+    df = pd.read_csv("./data/raw_data/xplore_0.csv")
+    filtered_df = filter_dataframe(df, "xplore_0")
 
 
 if __name__ == "__main__":
