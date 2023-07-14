@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 
 links = []
 titles = []
+datums = []
 
 for i in range(0, 2):
     print(f"Page {i}")
@@ -24,8 +25,13 @@ for i in range(0, 2):
     for title in titel:
         titles.append(title.find("a").get_text())
 
+    # Find datum
+    datum = soup.find_all(class_="bookPubDate simple-tooltip__block--b")
+    for date in datum:
+        datums.append(date.get_text())
+    
 # Create dataframe from links and titles
-df = pd.DataFrame({"title": titles, "link": links})
+df = pd.DataFrame({"title": titles, "link": links, "datum": datums})
 
 # Save dataframe to csv
 df.to_csv("acm_links.csv", index=False)
