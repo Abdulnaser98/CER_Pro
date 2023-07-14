@@ -1,0 +1,23 @@
+[
+    {
+        "pair": [
+            "Smart DC: An AI and Digital Twin-based Energy-Saving Solution for Data Centers",
+            "Smart DC: An AI and Digital Twin-based Energy-Saving Solution for Data Centers"
+        ],
+        "sim": 1.0
+    },
+    {
+        "pair": [
+            "Joint Computation Offloading and Resource Allocation Under Task-Overflowed Situations in Mobile-Edge Computing",
+            "Joint Computation Offloading and Resource Allocation Under Task-Overflowed Situations in Mobile-Edge Computing"
+        ],
+        "sim": 1.0
+    },
+    {
+        "pair": [
+            "Estimation of gross calorific value based on coal analysis using an explainable artificial intelligence",
+            "Estimation of gross calorific value based on coal analysis using an explainable artificial intelligence"
+        ],
+        "sim": 1.0
+    }
+]
