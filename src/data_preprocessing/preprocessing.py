@@ -30,7 +30,7 @@ def preprocess_text(corpus):
     stop_words = set(stopwords.words("english"))
     exclusion_list = [
         "artificial intelligence",
-        "AI",
+        "ai",
         "energy",
         "sustainable",
         "sustainability",
@@ -102,7 +102,7 @@ def calculate_tfidf(corpus):
 
 def main():
     # Given your original corpus
-    df = pd.read_csv("data/data_full.csv")
+    df = pd.read_csv("data/concatenated/concat_dedup.csv")
     corpus = df["abstract"].tolist()
 
     # Preprocess the corpus
