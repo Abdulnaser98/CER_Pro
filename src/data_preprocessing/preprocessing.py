@@ -34,6 +34,13 @@ def preprocess_text(corpus):
         "energy",
         "sustainable",
         "sustainability",
+        "renewable",
+        "algorithm",
+        "algorithms",
+        "machine learning",
+        "ml",
+        "deep learning",
+        "neural network",
     ]
     stop_words.update(exclusion_list)
 
