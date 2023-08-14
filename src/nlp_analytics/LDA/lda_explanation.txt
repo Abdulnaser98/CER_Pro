@@ -5,36 +5,41 @@ Preprocessing for Latent Dirichlet Allocation (LDA) analysis involves several cr
 The word_tokenize function from the NLTK library is employed to segment the processed abstracts into discrete tokens or words. 
 
 2. POS Tagging:
-Each tokenized word undergoes part-of-speech tagging using nltk.pos_tag. Only the tokens identified as nouns, verbs, and adjectives are retained for the LDA model.
+Each tokenized word undergoes part-of-speech tagging using nltk.pos_tag. Only the tokens identified as nouns are retained for the LDA model.
 
-4. Token Length Filtering:
+3. Token Length Filtering:
 To improve the quality of the dataset, tokens with a length of less than 2 characters are discarded. This eliminates short, often non-informative words from the analysis.
 
-5. Bigram Analysis:
+4. Bigram Analysis:
 The BigramCollocationFinder from NLTK is utilized to identify pairs of words (bigrams) that exhibit a high frequency of co-occurrence. This method captures the contextual relationship between words. However, certain commonplace bigrams, such as 'artificial intelligence' and 'machine learning', are deliberately excluded to maintain the uniqueness of topics.
 
-6. Collapsing Multi-word Tokens:
+5. Collapsing Multi-word Tokens:
 Identified bigrams are merged into singular tokens, effectively treating them as individual entities. For instance, the words 'artificial' and 'intelligence' are combined to form 'artificial_intelligence'. This strategy ensures that phrases with specific semantic significance are recognized as unique topics.
 
-7. Vectorization:
+6. Vectorization:
 The tokens are then numerically represented using the CountVectorizer from the scikit-learn library.
 
 
 Results:
 
-Silhouette Score: -0.029769718708069777
+Silhouette Score: -0.019330858109786686
 
 Best Model:
-{'model': LatentDirichletAllocation(doc_topic_prior=0.125, evaluate_every=10,
-                             max_iter=250, n_components=8, n_jobs=1,
-                             random_state=20191122, topic_word_prior=0.1),
-   'perplexity': 705.0855837538231,
-   'cao_juan_2009': 0.27327961080831387,
-   'coherence_mimno_2011': -476.95612318301517})
+Optimal_K = 6
+
+(6,
+  {'model': LatentDirichletAllocation(doc_topic_prior=0.16666666666666666,
+                             evaluate_every=10, max_iter=250, n_components=6,
+                             n_jobs=1, random_state=20191122,
+                             topic_word_prior=0.1),
+   'perplexity': 437.8716552872758,
+   'cao_juan_2009': 0.18540025127266715,
+   'coherence_mimno_2011': -436.4550627934225})
+
 
 Reliability:
-with min_sim = 0.37
---> 0.43
+with min_sim = 0.41
+--> 0.41
 
 Word intrusion: 0.4
 Topic intrusion: 0.33
