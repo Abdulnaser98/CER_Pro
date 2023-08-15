@@ -28,47 +28,48 @@
 ### Repository structure
 
 ``` plain
-├── 📁 data                 <-- Package that contains different data sources (data preprocessed in the following order):
-│   ├── 📁 data             <-- Raw data extracted for the three websites (without any preprocessing or filtering)
-│   ├── 📁 processed_data   <-- The preprocessed data 
-│   ├── 📁 filtered         <-- The filtered data, only abstracts that match the following query ==> ( [ai or artificial intelligence] and [sustainable or sustainability] and energy )
-│   └── 📁 concatenated     <-- The filtered data from the three data sources are concatenated into one dataframe that should be used in topic modeling processeys
+├── 📁 data                 <-- Data sources (preprocessed in the following order):
+│   ├── 📁 data             <-- Raw data extracted from websites
+│   ├── 📁 processed_data   <-- Preprocessed data
+│   ├── 📁 filtered         <-- Filtered data: abstracts matching query (AI/sustainable/energy)
+│   └── 📁 concatenated     <-- Concatenated filtered data from three sources for topic modeling
 │
-├── 📁 results              <-- visualizations about the results retrieved after conducting the topic modeling process
+├── 📁 results              <-- Visualizations of topic modeling results
 │   └── ...
 │
-├── 📁 notebooks            <-- Directory for Jupyter notebook files
+├── 📁 notebooks            <-- Jupyter notebook files
 │   └── ...
 │
-├── 📁 src                  <-- The code base of the project (the project runs in the follwoing order):
-│    ├── data_extraction     <-- python files to extract the data , select the best query and deduplicating the data
-│    │    └── scrapers       <-- Web scraper python files to extract the abstracts of the papers 
-│    │    │    └── acm_links_scraper.py       <--  links scraper for the website "acm"
-│    │    │    └── acm_abstract_scraper.py    <--  abstract scraper for the website "acm" 
-│    │    │    └── science_direct_data_scraper.py <-- scraper for the website "science direct" 
-│    │    │    └── xplore.py  <-- scraper for the website "xplore" 
-│    │    │    └── xplore_enrich.py <-- scraper for the website "xplore"
+├── 📁 src                  <-- Project code base (executed in the following order):
+│    ├── data_extraction     <-- Data extraction, query selection, and deduplication
+│    │    └── scrapers       <-- Web scrapers for abstract extraction
+│    │    │    └── acm_links_scraper.py       <-- ACM website links scraper
+│    │    │    └── acm_abstract_scraper.py    <-- ACM website abstract scraper
+│    │    │    └── science_direct_data_scraper.py <-- Science Direct website scraper
+│    │    │    └── xplore.py  <-- Xplore website scraper
+│    │    │    └── xplore_enrich.py <-- Xplore website scraper (enriched)
 │    │    │
-│    │    └── query_selection <-- python files to select the best query
+│    │    └── query_selection <-- Query selection logic
 │    │    │
-│    │    └── deduplicating   <-- filter out duplicated papers after combining the data of the three resources
-│    │        └── deduplicating.py <-- remove duplicated papers 
-│    │        └── filter_out_html_tags.py <-- remove html tags from the data
+│    │    └── deduplicating   <-- Deduplication of combined data
+│    │        └── deduplicating.py <-- Duplicated papers removal
+│    │        └── filter_out_html_tags.py <-- Removal of HTML tags
 │    │
-│    ├── data_preprocessing  <-- preprocessing of the scrapped data
+│    ├── data_preprocessing  <-- Preprocessing of scraped data
 │    │   └── preprocessing.py 
 │    │
-│    ├── nlp_analytics       <-- Topic modeling implementation. 
+│    ├── nlp_analytics       <-- Topic modeling implementation
 │
-├── 📃 .gitignore           <-- List of files and folders that should be ignored by git
+├── 📃 .gitignore           <-- Git ignore list
 │
-├── 📃 environment.yml      <-- List of python dependencies for the conda environment
+├── 📃 environment.yml      <-- Conda environment dependencies
 │
-├── 📃 main.py              <-- Compare algorithms
+├── 📃 main.py              <-- Algorithm comparison
 │
 ├── 📃 pyproject.toml       <-- Configuration file
 │
 └── 📃 README.md            <-- Project documentation
+
 ```
 
 
