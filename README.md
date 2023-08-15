@@ -21,7 +21,7 @@
    articles. 
 
 *  Following that , the titles and abstracts of the articles were manually evaluated to identify the most pertinent    ones that examined the role of artifical intelligence in ensuring the energy sector's sustainability and this  
-   screnning yield 182 publicationsspanning the years 2004 and 2022. 
+   screnning yield 182 publications spanning the years 2004 and 2022. 
 
  
 
