@@ -28,7 +28,7 @@
 ### Repository structure
 
 ``` plain
-├── 📁 data                 <-- Package that contains different data sources
+├── 📁 data                 <-- Package that contains different data sources (data preprocessed in the following order):
 │   ├── 📁 data             <-- Raw data extracted for the three websites (without any preprocessing or filtering)
 │   ├── 📁 processed_data   <-- The preprocessed data 
 │   ├── 📁 filtered         <-- The filtered data, only abstracts that match the following query ==> ( [ai or artificial intelligence] and [sustainable or sustainability] and energy )
