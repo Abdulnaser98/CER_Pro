@@ -28,32 +28,32 @@
 ### Repository structure
 
 ``` plain
-├── 📁 data        <-- Package that contains different data sources
-│   ├── 📁 data    <-- Raw data extracted for the three websites (without any preprocessing or filtering)
-│   ├── 📁 processed_data  <-- The preprocessed data 
-│   ├── 📁 filtered  <-- The filtered data, only abstracts that match the following query ==> ( [ai or artificial intelligence] and [sustainable or sustainability] and energy )
-│   └── 📁 concatenated <-- The filtered data from the three data sources are concatenated into one dataframe that should be used in topic modeling processeys
+├── 📁 data                 <-- Package that contains different data sources
+│   ├── 📁 data             <-- Raw data extracted for the three websites (without any preprocessing or filtering)
+│   ├── 📁 processed_data   <-- The preprocessed data 
+│   ├── 📁 filtered         <-- The filtered data, only abstracts that match the following query ==> ( [ai or artificial intelligence] and [sustainable or sustainability] and energy )
+│   └── 📁 concatenated     <-- The filtered data from the three data sources are concatenated into one dataframe that should be used in topic modeling processeys
 │
-├── 📁 results            <-- visualizations about the results retrieved after conducting the topic modeling process
+├── 📁 results              <-- visualizations about the results retrieved after conducting the topic modeling process
 │   └── ...
 │
-├── 📁 notebooks          <-- Directory for Jupyter notebook files
+├── 📁 notebooks            <-- Directory for Jupyter notebook files
 │   └── ...
 │
-├── 📁 src                <-- The code base of the project
-│   ├── data_extraction   <-- web scraper python files to extract the abstracts of the papers
-│   ├── data_preprocessing <-- preprocessing of the scrapped data
-│   ├── nlp_analytics      <-- Topic modeling implementation. 
+├── 📁 src                  <-- The code base of the project
+│   ├── data_extraction     <-- web scraper python files to extract the abstracts of the papers
+│   ├── data_preprocessing  <-- preprocessing of the scrapped data
+│   ├── nlp_analytics       <-- Topic modeling implementation. 
 │
-├── 📃 .gitignore         <-- List of files and folders that should be ignored by git
+├── 📃 .gitignore           <-- List of files and folders that should be ignored by git
 │
-├── 📃 environment.yml    <-- List of python dependencies for the conda environment
+├── 📃 environment.yml      <-- List of python dependencies for the conda environment
 │
-├── 📃 main.py            <-- Compare algorithms
+├── 📃 main.py              <-- Compare algorithms
 │
-├── 📃 pyproject.toml     <-- Configuration file
+├── 📃 pyproject.toml       <-- Configuration file
 │
-└── 📃 README.md          <-- Project documentation
+└── 📃 README.md            <-- Project documentation
 ```
 
 
