@@ -40,16 +40,16 @@
 ├── 📁 notebooks            <-- Directory for Jupyter notebook files
 │   └── ...
 │
-├── 📁 src                  <-- The code base of the project
-│    ├── data_extraction     <-- web scraper python files to extract the abstracts of the papers
-│    │    └── scrapers
+├── 📁 src                  <-- The code base of the project (the project runs in the follwoing order):
+│    ├── data_extraction     <-- python files to extract the data , select the best query and deduplicating the data
+│    │    └── scrapers       <-- Web scraper python files to extract the abstracts of the papers 
 │    │    │    └── acm_links_scraper.py       <--  links scraper for the website "acm"
 │    │    │    └── acm_abstract_scraper.py    <--  abstract scraper for the website "acm" 
 │    │    │    └── science_direct_data_scraper.py <-- scraper for the website "science direct" 
 │    │    │    └── xplore.py  <-- scraper for the website "xplore" 
 │    │    │    └── xplore_enrich.py <-- scraper for the website "xplore"
 │    │    │
-│    │    └── query_selection
+│    │    └── query_selection <-- python files to select the best query
 │    │    │
 │    │    └── deduplicating   <-- filter out duplicated papers after combining the data of the three resources
 │    │        └── deduplicating.py <-- remove duplicated papers 
