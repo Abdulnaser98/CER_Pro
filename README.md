@@ -28,7 +28,7 @@
 ### Repository structure
 
 ``` plain
-├── 📁 data                 <-- Data sources (preprocessed in the following order):
+├── 📁 data                 <-- Data sources (stored in the following order):
 │   ├── 📁 data             <-- Raw data extracted from websites
 │   ├── 📁 processed_data   <-- Preprocessed data
 │   ├── 📁 filtered         <-- Filtered data: abstracts matching query (AI/sustainable/energy)
