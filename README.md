@@ -28,26 +28,22 @@
 ### Repository structure
 
 ``` plain
-├── 📁 clustering         <-- Package that contains implementations of clustering algorithms
-│   ├── __init__.py
-│   ├── dbscan.py
-│   ├── utils.py
-│   └── ...
+├── 📁 data        <-- Package that contains different data sources
+│   ├── 📁 data    <-- Raw data extracted for the three websites (without any preprocessing or filtering)
+│   ├── 📁 processed_data  <-- The preprocessed data 
+│   ├── 📁 filtered  <-- The filtered data, only abstracts that match the following query ==> ( [ai or artificial intelligence] and [sustainable or sustainability] and energy )
+│   └── 📁 concatenated <-- The filtered data from the three data sources are concatenated into one dataframe that should be used in topic modeling processeys
 │
-├── 📁 env                <-- Local conda environment (not part of version control)
-│   └── ...
-│
-├── 📁 evaluation         <-- Evaluation of clustering algorithms with different metrics 
+├── 📁 results            <-- visualizations about the results retrieved after conducting the topic modeling process
 │   └── ...
 │
 ├── 📁 notebooks          <-- Directory for Jupyter notebook files
 │   └── ...
 │
-├── 📁 tests              <-- Unit tests scripts
-│   ├── __init__.py
-│   ├── test_dbscan.py
-│   ├── test_utils.py
-│   └── ...
+├── 📁 src                <-- The code base of the project
+│   ├── data_extraction   <-- web scraper python files to extract the abstracts of the papers
+│   ├── data_preprocessing <-- preprocessing of the scrapped data
+│   ├── nlp_analytics      <-- Topic modeling implementation. 
 │
 ├── 📃 .gitignore         <-- List of files and folders that should be ignored by git
 │
