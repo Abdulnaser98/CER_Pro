@@ -24,7 +24,41 @@
    screnning yield 182 publicationsspanning the years 2004 and 2022. 
 
  
-       
+
+### Repository structure
+
+``` plain
+├── 📁 clustering         <-- Package that contains implementations of clustering algorithms
+│   ├── __init__.py
+│   ├── dbscan.py
+│   ├── utils.py
+│   └── ...
+│
+├── 📁 env                <-- Local conda environment (not part of version control)
+│   └── ...
+│
+├── 📁 evaluation         <-- Evaluation of clustering algorithms with different metrics 
+│   └── ...
+│
+├── 📁 notebooks          <-- Directory for Jupyter notebook files
+│   └── ...
+│
+├── 📁 tests              <-- Unit tests scripts
+│   ├── __init__.py
+│   ├── test_dbscan.py
+│   ├── test_utils.py
+│   └── ...
+│
+├── 📃 .gitignore         <-- List of files and folders that should be ignored by git
+│
+├── 📃 environment.yml    <-- List of python dependencies for the conda environment
+│
+├── 📃 main.py            <-- Compare algorithms
+│
+├── 📃 pyproject.toml     <-- Configuration file
+│
+└── 📃 README.md          <-- Project documentation
+```
 
 
 
