@@ -41,9 +41,24 @@
 │   └── ...
 │
 ├── 📁 src                  <-- The code base of the project
-│   ├── data_extraction     <-- web scraper python files to extract the abstracts of the papers
-│   ├── data_preprocessing  <-- preprocessing of the scrapped data
-│   ├── nlp_analytics       <-- Topic modeling implementation. 
+│    ├── data_extraction     <-- web scraper python files to extract the abstracts of the papers
+│    │    └── scrapers
+│    │    │    └── acm_links_scraper.py       <--  links scraper for the website "acm"
+│    │    │    └── acm_abstract_scraper.py    <--  abstract scraper for the website "acm" 
+│    │    │    └── science_direct_data_scraper.py <-- scraper for the website "science direct" 
+│    │    │    └── xplore.py  <-- scraper for the website "xplore" 
+│    │    │    └── xplore_enrich.py <-- scraper for the website "xplore"
+│    │    │
+│    │    └── query_selection
+│    │    │
+│    │    └── deduplicating   <-- filter out duplicated papers after combining the data of the three resources
+│    │        └── deduplicating.py <-- remove duplicated papers 
+│    │        └── filter_out_html_tags.py <-- remove html tags from the data
+│    │
+│    ├── data_preprocessing  <-- preprocessing of the scrapped data
+│    │   └── preprocessing.py 
+│    │
+│    ├── nlp_analytics       <-- Topic modeling implementation. 
 │
 ├── 📃 .gitignore           <-- List of files and folders that should be ignored by git
 │
