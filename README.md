@@ -21,10 +21,56 @@
    articles. 
 
 *  Following that , the titles and abstracts of the articles were manually evaluated to identify the most pertinent    ones that examined the role of artifical intelligence in ensuring the energy sector's sustainability and this  
-   screnning yield 182 publicationsspanning the years 2004 and 2022. 
+   screnning yield 182 publications spanning the years 2004 and 2022. 
 
  
-       
+
+### Repository structure
+
+``` plain
+├── 📁 data                 <-- Data sources (stored in the following order):
+│   ├── 📁 data             <-- Raw data extracted from websites
+│   ├── 📁 processed_data   <-- Preprocessed data
+│   ├── 📁 filtered         <-- Filtered data: abstracts matching query (AI/sustainable/energy)
+│   └── 📁 concatenated     <-- Concatenated filtered data from three sources for topic modeling
+│
+├── 📁 results              <-- Visualizations of topic modeling results
+│   └── ...
+│
+├── 📁 notebooks            <-- Jupyter notebook files
+│   └── ...
+│
+├── 📁 src                  <-- Project code base (executed in the following order):
+│    ├── data_extraction     <-- Data extraction, query selection, and deduplication
+│    │    └── scrapers       <-- Web scrapers for abstract extraction
+│    │    │    └── acm_links_scraper.py       <-- ACM website links scraper
+│    │    │    └── acm_abstract_scraper.py    <-- ACM website abstract scraper
+│    │    │    └── science_direct_data_scraper.py <-- Science Direct website scraper
+│    │    │    └── xplore.py  <-- Xplore website scraper
+│    │    │    └── xplore_enrich.py <-- Xplore website scraper (enriched)
+│    │    │
+│    │    └── query_selection <-- Query selection logic
+│    │    │
+│    │    └── deduplicating   <-- Deduplication of combined data
+│    │        └── deduplicating.py <-- Duplicated papers removal
+│    │        └── filter_out_html_tags.py <-- Removal of HTML tags
+│    │
+│    ├── data_preprocessing  <-- Preprocessing of scraped data
+│    │   └── preprocessing.py 
+│    │
+│    ├── nlp_analytics       <-- Topic modeling implementation
+│
+├── 📃 .gitignore           <-- Git ignore list
+│
+├── 📃 environment.yml      <-- Conda environment dependencies
+│
+├── 📃 main.py              <-- Algorithm comparison
+│
+├── 📃 pyproject.toml       <-- Configuration file
+│
+└── 📃 README.md            <-- Project documentation
+
+```
 
 
 
