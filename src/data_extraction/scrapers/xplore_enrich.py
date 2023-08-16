@@ -3,35 +3,53 @@
 
 import pandas as pd
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.options import Options
+from selenium.common.exceptions import NoSuchElementException
+from tqdm import tqdm
 
-# import requests
-# from bs4 import BeautifulSoup
-
-## Setup chrome options
-chrome_options = Options()
-chrome_options.add_argument("--headless")  # Ensure GUI is off
-chrome_options.add_argument("--no-sandbox")
-
-# homedir = os.path.expanduser("~")
-webdriver_service = Service("./chromedriver/stable/chromedriver")
-
-# Choose Chrome Browser
-browser = webdriver.Chrome(service=webdriver_service, options=chrome_options)
-
+counter = 0
 
 def getDate(link):
-    date = ""
+    date = None
+    
+    global counter
+    if counter % 5 == 0:
+        result.to_csv("./data/filtered/xplore_with_date.csv", index=False)
 
-    browser.get(link)
-    div = browser.find_elements_by_class_name("doc-abstract-confdate")
-    browser.close()
+    driver.get(link)
 
+    try: 
+        div = driver.find_element(By.CLASS_NAME, "doc-abstract-confdate")
+        text = div.text
+        date = text.replace("Date of Conference: ", "")
+    except NoSuchElementException:
+        try:
+            div = driver.find_element(By.CLASS_NAME, "doc-abstract-pubdate")
+            text = div.text
+            date = text.replace("Date of Publication: ", "")
+        except NoSuchElementException:
+            pass
+
+    counter = counter+1
     return date
 
+options = Options()
+options.headless = True
+driver = webdriver.Firefox(options=options)
 
-df = pd.read_csv("./data/filtered/xplore.csv")[:1]
-df["date"] = df.apply(lambda row: getDate(row["link"]), axis=1)
+df = pd.read_csv("./data/filtered/xplore.csv")
+current_state = pd.read_csv("./data/filtered/xplore_with_date.csv")
+result = pd.DataFrame(columns = ['date', 'title', 'link', 'abstract'])
 
-print(df)
+for index, row in tqdm(df.iterrows()):
+    if index >= len(current_state):
+        date = getDate(row['link'])
+        row['date'] = date
+    else:
+        row['date'] = current_state.iloc[index]['date']
+    result.loc[len(result)] = row
+
+result.to_csv("./data/filtered/xplore_with_date.csv", index=False)
+
+driver.close()
