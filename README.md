@@ -28,17 +28,27 @@
 ### Repository structure
 
 ``` plain
-├── 📁 data                 <-- Data sources (stored in the following order):
-│   ├── 📁 data             <-- Raw data extracted from websites
-│   ├── 📁 processed_data   <-- Preprocessed data
-│   ├── 📁 filtered         <-- Filtered data: abstracts matching query (AI/sustainable/energy)
-│   └── 📁 concatenated     <-- Concatenated filtered data from three sources for topic modeling
+├── 📁 data                   <-- Data sources (stored in the following order):
+│   ├── 📁 data               <-- Raw data extracted from websites
+│   ├── 📁 processed_data     <-- Preprocessed data
+│   ├── 📁 filtered           <-- Filtered data: abstracts matching query (AI/sustainable/energy)
+│   └── 📁 concatenated       <-- Concatenated filtered data from three sources for topic modeling
 │
-├── 📁 results              <-- Visualizations of topic modeling results
-│   └── ...
 │
-├── 📁 notebooks            <-- Jupyter notebook files
-│   └── ...
+│
+├── 📁 results                <-- Visualizations of topic modeling results
+│   └── Coherence_scores_vs_num_topics.jpg      <-- A plot on how the coherence scores of different methods change on different number of topics
+│   └── Silhouette_scores_vs_num_topics.jpg     <-- A plot om how the silhouette scores of different methods change on different number of topics
+│
+│
+│
+├── 📁 notebooks              <-- Jupyter notebook files:
+│   └── Bertopic.ipynb        <-- notebook of the implementation of the pretrained model "Bertopic" 
+│   └── lda.ipynb             <-- notebook of the implementation of lda 
+│   └── lda_evaluation.ipynb  <-- notebook of the evaluation of the LDA model
+│   └── tfidf.ipynb           <-- notebook of the implementation of tfidf + clustering 
+│
+│
 │
 ├── 📁 src                  <-- Project code base (executed in the following order):
 │    ├── data_extraction     <-- Data extraction, query selection, and deduplication
@@ -60,13 +70,28 @@
 │    │
 │    ├── nlp_analytics       <-- Topic modeling implementation
 │
+│
 ├── 📃 .gitignore           <-- Git ignore list
+│
 │
 ├── 📃 environment.yml      <-- Conda environment dependencies
 │
+│
 ├── 📃 main.py              <-- Algorithm comparison
 │
+│
 ├── 📃 pyproject.toml       <-- Configuration file
+│
+│
+├── 📃 archiv               <-- Archiv folder
+│    ├── lda_output         <-- Experiments of the created LDA model
+│    │    └── lda_model_0.pkl
+│    │    └── lda_model_1.pkl
+│    │    └── lda_model_2.pkl
+│    │    └── ...............
+│    │
+│    ├──  lda_explanation.txt  <-- Explanation of the preprocessing of the LDA Analysis and the results
+│
 │
 └── 📃 README.md            <-- Project documentation
 
