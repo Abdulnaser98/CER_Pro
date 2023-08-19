@@ -36,9 +36,18 @@
 │
 │
 │
-├── 📁 results                <-- Visualizations of topic modeling results
-│   └── Coherence_scores_vs_num_topics.jpg      <-- A plot on how the coherence scores of different methods change on different number of topics
-│   └── Silhouette_scores_vs_num_topics.jpg     <-- A plot om how the silhouette scores of different methods change on different number of topics
+├── 📁 results
+│   ├── 📁 figures
+│       ├── 📁 LDA                                  <-- LDA Visualisations (Wordcloud, stacked Bar Chart)
+│       └── Coherence_scores_vs_num_topics.jpg      <-- A plot on how the coherence scores of different methods change on different number of topics
+│       └── Silhouette_scores_vs_num_topics.jpg     <-- A plot om how the silhouette scores of different methods change on different number of topics
+│   ├── 📁 lda_output        <-- Experiments of the created LDA model
+│    │    └── lda_model_0.pkl
+│    │    └── lda_model_1.pkl
+│    │    └── lda_model_2.pkl
+│    │    └── ...............
+│    │
+│    ├──  lda_explanation.txt  <-- Explanation of the preprocessing of the LDA Analysis and the results                             <-- Visualizations of topic modeling results
 │
 │
 │
@@ -83,14 +92,6 @@
 ├── 📃 pyproject.toml       <-- Configuration file
 │
 │
-├── 📃 archiv               <-- Archiv folder
-│    ├── lda_output         <-- Experiments of the created LDA model
-│    │    └── lda_model_0.pkl
-│    │    └── lda_model_1.pkl
-│    │    └── lda_model_2.pkl
-│    │    └── ...............
-│    │
-│    ├──  lda_explanation.txt  <-- Explanation of the preprocessing of the LDA Analysis and the results
 │
 │
 └── 📃 README.md            <-- Project documentation
