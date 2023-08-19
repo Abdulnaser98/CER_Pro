@@ -109,7 +109,7 @@ def calculate_tfidf(corpus):
 
 def main():
     # Given your original corpus
-    df = pd.read_csv("data/concatenated/concat_dedup.csv")
+    df = pd.read_csv("data/concatenated/concat_dedup_with_date.csv")
     corpus = df["abstract"].tolist()
 
     # Preprocess the corpus
@@ -120,7 +120,7 @@ def main():
 
     # Save the processed corpus as a column in the dataframe
     df["processed_abstract"] = relevant_corpus
-    df.to_csv("data/data_full_processed.csv", index=False)
+    df.to_csv("data/data_full_processed_with_date.csv", index=False)
 
 
 if __name__ == "__main__":

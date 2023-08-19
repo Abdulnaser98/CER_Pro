@@ -3,17 +3,19 @@ from itertools import combinations
 import tqdm
 import json
 
-xplore = pd.read_csv("./data/filtered/xplore.csv")
-acm = pd.read_csv("./data/filtered/filtered_acm_data.csv")
-science_direct = pd.read_csv("./data/filtered/science_direct_filtered_data.csv")
+# xplore = pd.read_csv("./data/filtered/xplore.csv")
+# acm = pd.read_csv("./data/filtered/filtered_acm_data.csv")
+# science_direct = pd.read_csv("./data/filtered/science_direct_filtered_data.csv")
 
-# create uniform columns
-xplore = xplore.drop(["link", "date"], axis=1)
-acm = acm.drop(["link", "datum"], axis=1)
-science_direct = science_direct.drop(["Unnamed: 0", "month", "year"], axis=1)
+# # create uniform columns
+# xplore = xplore.drop(["link", "date"], axis=1)
+# acm = acm.drop(["link", "datum"], axis=1)
+# science_direct = science_direct.drop(["Unnamed: 0", "month", "year"], axis=1)
 
 # concatenate dataframes
-data_concat = pd.concat([xplore, acm, science_direct])
+#data_concat = pd.concat([xplore, acm, science_direct])
+
+data_concat = pd.read_csv('./././data/concatenated/concat_with_date.csv')
 
 print(data_concat.info())
 
@@ -73,4 +75,4 @@ with open("./data/concatenated/matches.json", "w") as f:
 
 data_concat = data_concat.drop_duplicates(subset=["title"])
 
-data_concat.to_csv("./data/concatenated/concat_dedup.csv", index=False)
+data_concat.to_csv("./data/concatenated/concat_dedup_with_date.csv", index=False)
