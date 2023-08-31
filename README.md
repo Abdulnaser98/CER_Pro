@@ -80,18 +80,10 @@
 │    ├── nlp_analytics       <-- Topic modeling implementation
 │
 │
-├── 📃 .gitignore           <-- Git ignore list
-│
-│
-├── 📃 environment.yml      <-- Conda environment dependencies
-│
-│
 ├── 📃 main.py              <-- Algorithm comparison
 │
 │
-├── 📃 pyproject.toml       <-- Configuration file
-│
-│
+├── 📃 requirements.txt       <-- Configuration file
 │
 │
 └── 📃 README.md            <-- Project documentation
