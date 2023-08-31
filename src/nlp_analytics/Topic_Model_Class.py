@@ -4,6 +4,7 @@ from datetime import datetime
 from gensim import corpora
 import gensim
 import numpy as np
+from Autoencoder import *
 
 # define model object
 class Topic_Model:

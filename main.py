@@ -1,22 +1,19 @@
-from preprocessing import *
+import sys
+sys.path.append('./src/data_preprocessing')
+sys.path.append('./src/nlp_analytics')
+
+from preprocessing_new import *
 from Topic_Model_Class import *
 from utils import *
 import pandas as pd
 
+
 def main():
-    method = "TFIDF"
-    samp_size = 360
+    method = "LDA_BERT"
+    samp_size = 30
     ntopic = 9
 
-    #parser = argparse.ArgumentParser(description='contextual_topic_identification tm_test:1.0')
-
-    #parser.add_argument('--fpath', default='/kaggle/working/train.csv')
-    #parser.add_argument('--ntopic', default=10,)
-    #parser.add_argument('--method', default='TFIDF')
-    #parser.add_argument('--samp_size', default=20500)
-
-    #args = parser.parse_args()
-    data = pd.read_csv('/Users/abdulnaser/Desktop/CER_Pro/data/processed_data/data_full_processed.csv')
+    data = pd.read_csv('./data/processed_data/data_full_processed.csv')
     data = data.fillna('')  # only the comments has NaN's
     rws = data.abstract
     print(rws.shape)

@@ -1,13 +1,12 @@
-import re
-import numpy as np
 from nltk.stem.porter import PorterStemmer
-import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
+from stop_words import get_stop_words
+import numpy as np
+import re
 from language_detector import detect_language
-from symspellpy import SymSpell, Verbosity
-nltk.download('stopwords')
-stop_words = stopwords.words('english')
+from nltk.tokenize import word_tokenize
+import nltk
+
+
 
 
 
@@ -84,6 +83,25 @@ def f_noun(w_list):
     return [word for (word, pos) in nltk.pos_tag(w_list) if pos[:2] == 'NN']
 
 
+# typo correction
+def f_typo(w_list):
+    """
+    :param w_list: word list to be processed
+    :return: w_list with typo fixed by symspell. words with no match up will be dropped
+    """
+    w_list_fixed = []
+    for word in w_list:
+        suggestions = sym_spell.lookup(word, Verbosity.CLOSEST, max_edit_distance=3)
+        if suggestions:
+            w_list_fixed.append(suggestions[0].term)
+        else:
+            pass
+            # do word segmentation, deprecated for inefficiency
+            # w_seg = sym_spell.word_segmentation(phrase=word)
+            # w_list_fixed.extend(w_seg.corrected_string.split())
+    return w_list_fixed
+
+
 # stemming if doing word-wise
 p_stemmer = PorterStemmer()
 
@@ -96,6 +114,31 @@ def f_stem(w_list):
     return [p_stemmer.stem(word) for word in w_list]
 
 
+# filtering out stop words
+# create English stop words list
+
+stop_words = (list(
+    set(get_stop_words('en'))
+    |set(get_stop_words('es'))
+    |set(get_stop_words('de'))
+    |set(get_stop_words('it'))
+    |set(get_stop_words('ca'))
+    #|set(get_stop_words('cy'))
+    |set(get_stop_words('pt'))
+    #|set(get_stop_words('tl'))
+    |set(get_stop_words('pl'))
+    #|set(get_stop_words('et'))
+    |set(get_stop_words('da'))
+    |set(get_stop_words('ru'))
+    #|set(get_stop_words('so'))
+    |set(get_stop_words('sv'))
+    |set(get_stop_words('sk'))
+    #|set(get_stop_words('cs'))
+    |set(get_stop_words('nl'))
+    #|set(get_stop_words('sl'))
+    #|set(get_stop_words('no'))
+    #|set(get_stop_words('zh-cn'))
+))
 
 
 def f_stopw(w_list):
@@ -133,6 +176,7 @@ def preprocess_word(s):
     w_list = f_stopw(w_list)
 
     return w_list
+
 
 
 def preprocess(docs, samp_size=None):

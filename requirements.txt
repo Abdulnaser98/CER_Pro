@@ -1,0 +1,9 @@
+nltk
+stop_words
+language_detector
+sklearn
+gensim 
+tensorflow
+bs4
+selenium
+webdriver_manager

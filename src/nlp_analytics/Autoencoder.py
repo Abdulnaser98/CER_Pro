@@ -1,6 +1,8 @@
+from keras.layers import Input,Dense,Model
+
 class Autoencoder:
     """
-    Autoencoder for learning latent space representation
+    Autoencoder for learning latent space rconda epresentation
     architecture simplified for only one hidden layer
     """
 
@@ -11,7 +13,7 @@ class Autoencoder:
         self.batch_size = batch_size
         self.autoencoder = None
         self.encoder = None
-        self.decoder = None
+        self.decodery = None
         self.his = None
 
     def _compile(self, input_dim):
